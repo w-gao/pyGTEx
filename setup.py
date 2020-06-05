@@ -10,5 +10,5 @@ setup(name='pyGTEx',
           'matplotlib',
           'seaborn'
       ],
-      packages=find_packages('.')
+      py_modules=['pygtex', 'GTExVisuals', 'tests']
       )
