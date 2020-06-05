@@ -1,4 +1,7 @@
-"""# Test"""
+# !/usr/bin/env python3
+
+from pygtex import GeneModel, GenesModel, TissuesInfoModel, GTExAPIError
+from pygtex import GeneExpressionModel, MedianGeneExpressionModel, TopExpressedGeneModel
 
 # TissuesInfoModel
 model = TissuesInfoModel()
@@ -24,7 +27,7 @@ geModel = GeneExpressionModel(
 expression = geModel.getGeneExpression()
 expression.sort(key=lambda item: (item[0], item[3], item[1]))
 for tissue, median, n, subsetGroup in expression:
-  print("{:<40}Median={:.3f}TPM,\tn={},\tGroup={}".format(tissue, median, n, subsetGroup))
+    print("{:<40}Median={:.3f}TPM,\tn={},\tGroup={}".format(tissue, median, n, subsetGroup))
 
 
 # MedianGeneExpressionModel
