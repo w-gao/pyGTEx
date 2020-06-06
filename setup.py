@@ -1,8 +1,8 @@
 
-from setuptools import setup, find_packages
+from setuptools import setup
 
 setup(name='pyGTEx',
-      version='0.1.1',
+      version='0.1.2',
       url='https://github.com/mystical-Rose/pyGTEx',
       install_requires=[
           'numpy',

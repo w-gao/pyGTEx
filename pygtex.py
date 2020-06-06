@@ -364,13 +364,17 @@ class TopExpressedGeneModel(Model):
       }
     """
 
-    def __init__(self, tissueSiteDetailId, num=100):
+    def __init__(self, tissueSiteDetailId, filterMtGene=False, num=100):
         """
         tissueSiteDetailId - string, required : A tissue ID of the tissue of interest.
+        filterMtGene - boolean, optional : Flag specifying whether or not to filter out mitochondrial genes.
         num - integer, optional : A number of genes that will be fetched from the top expressed list.
         """
-        url = "expression/topExpressedGene?datasetId=gtex_v8&tissueSiteDetailId={}&sortBy=median&sortDirection=desc&pageSize={}" \
-            .format(tissueSiteDetailId, num)
+        url = "expression/topExpressedGene?datasetId=gtex_v8&tissueSiteDetailId={}".format(tissueSiteDetailId)
+        if filterMtGene:
+            url += "&filterMtGene=true"
+        url += "&sortBy=median&sortDirection=desc&pageSize={}".format(num)
+
         super().__init__(url)
 
     def isTopExpressedGene(self, geneSymbol, gencodeId=None):

@@ -117,15 +117,18 @@ def plotMedianGeneExpressionClusters(genes, tissueIds, clusteredBy="tissues"):
     Phylo.draw(tree, axes=plt.axes(frame_on=False, xticks=[], yticks=[]))
 
 
-def plotMedianGeneExpressionHeatmap(genes, tissueIds):
+def plotMedianGeneExpressionHeatmap(genes, tissueIds, figsize=None):
     """
     genes - a list of gene symbols, versioned gencode Ids, or unversioned gencode Ids.
     tissueIds - a list of tissueSiteDetailIds.
+    figsize - figure size.
     """
     mModel = _getMedianGeneExpressionModel(genes, tissueIds)
     index, data = mModel.getMedianExpression()
     df = pd.DataFrame(data=data, index=index)
-    seaborn.heatmap(df, cmap='YlGnBu', linewidths=0.5, robust=True, annot=True)
+    if figsize:
+        plt.rcParams['figure.figsize'] = figsize  # this updates the default figsize as well
+    seaborn.heatmap(df, cmap='YlGnBu', linewidths=0.5, robust=True, annot=True, square=True)
 
 
 # TopExpressedGene
