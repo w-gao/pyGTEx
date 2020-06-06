@@ -132,14 +132,15 @@ def plotMedianGeneExpressionHeatmap(genes, tissueIds, figsize=None):
 
 
 # TopExpressedGene
-def plotTopExpressedGene(tissueId, num=50, kind="bar", title=None, figsize=None, rot=None, xlabel='Genes', ylabel='Median (TPM)'):
+
+def plotTopExpressedGene(tissueId, filterMtGene=False, num=50, kind="bar", title=None, figsize=None, rot=None, xlabel='Genes', ylabel='Median (TPM)'):
     """
     tissueIds - a list of tissueSiteDetailIds.
     kind - the kind of plot to produce (bar, barh, etc)
     title, figsize, rot, xlabel, ylabel - settings for matplotlib
     """
     title = title or 'Top Genes Expressed in {} by Median'.format(tissueId)
-    teModel = TopExpressedGeneModel(tissueId, num)
+    teModel = TopExpressedGeneModel(tissueId, filterMtGene=filterMtGene, num=num)
     topExGenes = teModel.getTopGenesInfo()  # dictionary of top expressed genes with their median expression values
     # sort the dictionary in descending order
     sortedGenes = {gene: median for gene, median in sorted(topExGenes.items(), key=lambda item: item[1], reverse=True)}
