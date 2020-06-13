@@ -11,5 +11,5 @@ setup(name='pyGTEx',
           'seaborn',
           'biopython'
       ],
-      py_modules=['pygtex', 'GTExVisuals', 'tests']
+      py_modules=['pygtex', 'GTExVisuals']
       )
