@@ -44,3 +44,4 @@ print(model.getMedianExpression())
 tegModel = TopExpressedGeneModel('Esophagus_Gastroesophageal_Junction', 20)
 print(tegModel.isTopExpressedGene(geneSymbol='MT-ND3'))
 print(tegModel.isTopExpressedGene('ENSG00000130234.10'))
+

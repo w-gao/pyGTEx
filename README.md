@@ -2,20 +2,25 @@
 
 pyGTEx is a module that aims to provide multiple wrappers that allow for ease of access to data pertaining to gene expression in tissues. 
 
-**This project is not affiliated with the Genotype-Tissue Expression (GTEx) Project!**
+**NOTE: This project is not affiliated with the Genotype-Tissue Expression (GTEx) Project.**
+
 
 ## Installing pyGTEx
 
-pyGTEx is available at https://github.com/mystical-Rose/pyGTEx and can be installed by the following command: 
+pyGTEx is available at https://github.com/w-gao/pyGTEx and can be installed by the following command: 
 ```
-pip install git+https://github.com/mystical-Rose/pyGTEx.git
+pip install git+https://github.com/w-gao/pyGTEx.git
 ```
+
 
 ## Module Design
 
 <image src='images/design_chart.png' />
 
-## Exploring Available Tissues - TissuesInfoModel
+
+## Examples
+
+### Exploring Available Tissues - TissuesInfoModel
 
 Here is an example of using one of our Models where we fetch all tissues that are supported by GTEx:
 
@@ -29,7 +34,7 @@ tModel = pygtex.TissuesInfoModel()
 tissues = tModel.getTissues('tissueSiteDetailId')
 ```
 
-### What `tissues` looks like
+#### What `tissues` looks like
 
 The first 10 of 54 identified tissue sites in the body are displayed in the table below.
 
@@ -96,7 +101,7 @@ df
 
 
 
-## Exploring GenesModel
+### Exploring GenesModel
 
 If you would like to get information on one or multiple genes, you can do that using the GeneModel or GenesModel, which allows query of genes based on gene symbols or genecode Ids. 
 
@@ -117,10 +122,9 @@ print(' - EntrezGeneId:', gModel.getEntrezGeneId())
      - EntrezGeneId: 59272
 
 
-## Visualization with GTExVisuals
+### Visualization with GTExVisuals
 
 GTExVisuals comes with the pyGTEx installation, and it is our application of pyGTEx to allow for further ease in visualization by giving the user the option to generate Newick trees, heatmaps, or bar graphs depending on the type of gene and/or tissue data given.
-
 
 
 ```python
@@ -128,7 +132,7 @@ GTExVisuals comes with the pyGTEx installation, and it is our application of pyG
 import GTExVisuals
 ```
 
-### plotGeneExpression
+#### plotGeneExpression
 
 Explore the tissues where a gene is most expressed
 
@@ -160,7 +164,7 @@ GTExVisuals.plotGeneExpression('KRT5', skinTissues, figsize=[15, 6], sortBy="age
 ![png](images/ex_plotGeneExpression_2.png)
 
 
-### plotTopExpressedGene
+#### plotTopExpressedGene
 
 See what genes are top expressed in a tissue site.
 
@@ -173,7 +177,7 @@ GTExVisuals.plotTopExpressedGene('Liver', filterMtGene=True, figsize=[10, 6])
 ![png](images/ex_plotTopExpressedGene.png)
 
 
-### plotMedianGeneExpression
+#### plotMedianGeneExpression
 
 We can visualize median gene expression data from multiple Gencode IDs on particular tissues.
 
@@ -189,7 +193,7 @@ GTExVisuals.plotMedianGeneExpression(genesOfInterest, tissueIds=tissuesOfInteres
 ![png](images/ex_plotMedianGeneExpression.png)
 
 
-### plotMedianGeneExpressionHeatmap
+#### plotMedianGeneExpressionHeatmap
 
 We can visualize median gene expression data with a heatmap.
 
@@ -201,19 +205,9 @@ GTExVisuals.plotMedianGeneExpressionHeatmap(genesOfInterest, tissueIds=tissuesOf
 
 ![png](images/ex_plotMedianGeneExpressionHeatmap.png)
 
-## Built With
 
-- Python 3
 
-### Dependencies
+## LICENSE
 
-- numpy ~= 1.18.1
-- pandas ~= 1.0.3
-- matplotlib ~= 3.1.3
-- seaborn ~= 0.10.1
-- biopython ~= 1.76
+Copyright (C) 2022 William Gao and Rose Delvillar, under the MIT license.
 
-## Authors
-
-- [mystical-Rose](https://github.com/mystical-Rose)
-- [w-gao](https://github.com/w-gao)
