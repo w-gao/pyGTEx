@@ -6,6 +6,11 @@ with open("README.md") as f:
 with open("requirements.txt") as f:
     requirements = f.read().splitlines()
 
+# test_requirements = [
+#     "pytest",
+#     "pytest-cov"
+# ]
+
 
 setup(
     name="pyGTEx",
